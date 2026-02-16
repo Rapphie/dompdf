@@ -147,11 +147,11 @@
     <table class="meta-table">
         <tr>
             <td>LGU:</td>
-            <td><strong>{{ $lgu ?? 'Manila City' }}</strong></td>
+            <td>{{ $lgu ?? 'Manila City' }}</td>
         </tr>
         <tr>
             <td>Period Covered:</td>
-            <td><strong>{{ $period ?? 'Q1, 2025' }}</strong></td>
+            <td>{{ $period ?? 'Q1, 2025' }}</td>
         </tr>
     </table>
 
