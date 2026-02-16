@@ -5,7 +5,7 @@ namespace App\Services;
 use RuntimeException;
 use UnexpectedValueException;
 
-class FinancialReportService
+class AMDFinancialReportService
 {
     private const REPORT_SOURCE_PATH = 'financial-reports/amd-q1.json';
 

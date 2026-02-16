@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\FinancialReportService;
+use App\Services\AMDFinancialReportService;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Validation\ValidationException;
 use JsonException;
 use RuntimeException;
 use UnexpectedValueException;
 
-class FinancialReportController extends Controller
+class AMDFinancialReportController extends Controller
 {
     public function __construct(
-        private FinancialReportService $financialReportService
+        private AMDFinancialReportService $financialReportService
     ) {}
 
     public function index()
