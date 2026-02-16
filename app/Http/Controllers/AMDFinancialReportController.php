@@ -15,24 +15,21 @@ class AMDFinancialReportController extends Controller
         private AMDFinancialReportService $financialReportService
     ) {}
 
-    public function index()
+    public function preview()
     {
-        $reportMeta = null;
-        $sourceError = null;
-
         try {
-            $reportMeta = $this->financialReportService->retrieveFinancialOverview(
-                $this->financialReportService->readAmdQ1Payload()
-            );
-        } catch (RuntimeException|JsonException|UnexpectedValueException) {
-            $sourceError = 'Unable to read public/financial-reports/amd-q1.json.';
+            $reportPayload = $this->financialReportService->readAmdQ1Payload();
+        } catch (RuntimeException|JsonException|UnexpectedValueException $e) {
+            abort(500, $e->getMessage());
         }
 
-        return view('reports.home', [
-            'reportMeta' => $reportMeta,
-            'reportSourcePath' => $this->financialReportService->reportSourcePath(),
-            'sourceError' => $sourceError,
-        ]);
+        $report = $this->financialReportService->prepareReportData($reportPayload);
+
+        return Pdf::loadView('reports.pdf', [
+            'report' => $report,
+        ])
+            ->setPaper('a4', 'portrait')
+            ->stream();
     }
 
     public function download()

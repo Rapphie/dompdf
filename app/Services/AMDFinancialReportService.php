@@ -48,7 +48,7 @@ class AMDFinancialReportService
             throw new RuntimeException('Failed to read report file.');
         }
 
-        $payload = json_decode($rawJson, true, 512, JSON_THROW_ON_ERROR);
+        $payload = json_decode($rawJson, true);
 
         if (! is_array($payload)) {
             throw new UnexpectedValueException('Unsupported JSON structure.');
