@@ -26,13 +26,11 @@
         .header-block p {
             margin: 0;
             font-size: 8px;
-            font-weight: bold;
         }
 
         .report-title {
             text-align: center;
             font-size: 10px;
-            font-weight: bold;
             margin: 10px 0 10px 0;
         }
 
@@ -65,7 +63,6 @@
 
         .sre-table th {
             text-align: center;
-            font-weight: bold;
         }
 
         .col-particulars {
@@ -113,13 +110,11 @@
         }
 
         .sig-name {
-            font-weight: bold;
             font-size: 9px;
             margin-bottom: 1px;
         }
 
         .sig-title {
-            font-weight: bold;
             font-size: 8px;
             margin-bottom: 0;
         }
@@ -191,16 +186,16 @@
                     $isSub = !$isCategory && !$isTotal;
                 @endphp
                 <tr @if ($isSub) class="indent" @endif>
-                    <td style="{{ $isCategory || $isTotal ? 'font-weight:bold;' : '' }}">{{ $p }}</td>
-                    <td class="col-amount" style="{{ $isCategory || $isTotal ? 'font-weight:bold;' : '' }}">
+                    <td>{{ $row['particulars'] }}</td>
+                    <td class="col-amount" style="{{ $isCategory || $isTotal }}">
                         {{ $row['income_target_budget_appropriation'] ?? '' }}</td>
-                    <td class="col-amount" style="{{ $isCategory || $isTotal ? 'font-weight:bold;' : '' }}">
+                    <td class="col-amount" style="{{ $isCategory || $isTotal }}">
                         {{ $row['general_fund'] ?? '' }}</td>
-                    <td class="col-amount" style="{{ $isCategory || $isTotal ? 'font-weight:bold;' : '' }}">
+                    <td class="col-amount" style="{{ $isCategory || $isTotal }}">
                         {{ $row['sef'] ?? '' }}</td>
-                    <td class="col-amount" style="{{ $isCategory || $isTotal ? 'font-weight:bold;' : '' }}">
+                    <td class="col-amount" style="{{ $isCategory || $isTotal }}">
                         {{ $row['total'] ?? '' }}</td>
-                    <td class="col-percent" style="{{ $isCategory || $isTotal ? 'font-weight:bold;' : '' }}">
+                    <td class="col-percent" style="{{ $isCategory || $isTotal }}">
                         {{ $row['percent_to_total_income'] ?? '' }}</td>
                 </tr>
             @endforeach
