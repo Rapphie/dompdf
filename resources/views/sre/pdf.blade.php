@@ -87,7 +87,7 @@
 
         /* ---- Signature section ---- */
         .sig-section {
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .sig-table {
@@ -99,35 +99,41 @@
             border: none;
             vertical-align: top;
             width: 50%;
-            padding: 4px 30px;
+            padding: 4px 20px;
             text-align: center;
         }
 
         .sig-label {
             font-size: 8px;
-            text-align: left;
             margin-bottom: 15px;
         }
 
         .sig-name {
             font-size: 9px;
+            font-weight: bold;
             margin-bottom: 1px;
         }
 
         .sig-title {
             font-size: 8px;
+            font-weight: bold;
             margin-bottom: 0;
         }
 
-        .sig-line {
+        .sig-underline {
+            width: 60%;
+            margin: 2px auto 0 auto;
             border-top: 1px solid #000;
-            margin-top: 2px;
-            padding-top: 3px;
+        }
+
+        .sig-office {
             font-size: 8px;
+            padding-top: 3px;
+            margin: 0;
         }
 
         .sig-gap {
-            height: 15px;
+            height: 25px;
         }
     </style>
 </head>
@@ -208,16 +214,18 @@
             {{-- Row 1: Prepared by / Certified by --}}
             <tr>
                 <td>
-                    <div class="sig-label">Prepared by:</div>
+                    <p class="sig-label" style="text-align: left;">Prepared by:</p>
                     <p class="sig-name">{{ $signatures['prepared_by']['name'] }}</p>
                     <p class="sig-title">( {{ $signatures['prepared_by']['title'] }} )</p>
-                    <div class="sig-line">{{ $signatures['prepared_by']['office'] }}</div>
+                    <div class="sig-underline"></div>
+                    <p class="sig-office">{{ $signatures['prepared_by']['office'] }}</p>
                 </td>
                 <td>
-                    <div class="sig-label" style="text-align: right;">Certified by:</div>
+                    <p class="sig-label" style="text-align: left;">Certified by:</p>
                     <p class="sig-name">{{ $signatures['certified_by']['name'] }}</p>
                     <p class="sig-title">( {{ $signatures['certified_by']['title'] }} )</p>
-                    <div class="sig-line">{{ $signatures['certified_by']['office'] }}</div>
+                    <div class="sig-underline"></div>
+                    <p class="sig-office">{{ $signatures['certified_by']['office'] }}</p>
                 </td>
             </tr>
             {{-- Row 2: Budget officers --}}
@@ -226,13 +234,15 @@
                     <div class="sig-gap"></div>
                     <p class="sig-name">{{ $signatures['budget_officer']['name'] }}</p>
                     <p class="sig-title">( {{ $signatures['budget_officer']['title'] }} )</p>
-                    <div class="sig-line">{{ $signatures['budget_officer']['office'] }}</div>
+                    <div class="sig-underline"></div>
+                    <p class="sig-office">{{ $signatures['budget_officer']['office'] }}</p>
                 </td>
                 <td>
                     <div class="sig-gap"></div>
                     <p class="sig-name">{{ $signatures['budget_certifier']['name'] }}</p>
                     <p class="sig-title">&nbsp;</p>
-                    <div class="sig-line">{{ $signatures['budget_certifier']['office'] }}</div>
+                    <div class="sig-underline"></div>
+                    <p class="sig-office">{{ $signatures['budget_certifier']['office'] }}</p>
                 </td>
             </tr>
         </table>
